@@ -1,5 +1,6 @@
-import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
+import Chat from '@/components/Chat';
+import { auth } from '@/lib/auth';
 
 async function getDisplayName() {
   const session = await auth.api.getSession({
@@ -20,5 +21,10 @@ async function getDisplayName() {
 export default async function Home() {
   const displayName = await getDisplayName();
 
-  return <div className="font-sans">{displayName}</div>;
+  return (
+    <div className="font-sans">
+      <div>{displayName}</div>
+      <Chat />
+    </div>
+  );
 }
