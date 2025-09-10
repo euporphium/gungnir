@@ -1,9 +1,10 @@
+import 'server-only';
 import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import { anonymous } from 'better-auth/plugins';
 import { nextCookies } from 'better-auth/next-js';
-import { db } from './pg';
-import { redis } from './redis';
+import { db } from './db/pg';
+import { redis } from './db/redis';
 
 export const auth = betterAuth({
   advanced: {
@@ -24,6 +25,10 @@ export const auth = betterAuth({
     delete: async (key) => {
       await redis.del(key);
     },
+  },
+  rateLimit: {
+    enabled: true,
+    storage: 'secondary-storage',
   },
   plugins: [anonymous(), nextCookies()],
 });

@@ -1,6 +1,6 @@
 import Ably from 'ably';
 import type { NextRequest } from 'next/server';
-import { auth } from '@/lib/auth';
+import { auth } from '@/lib/server/auth';
 
 export const revalidate = 0;
 

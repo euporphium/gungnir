@@ -3,7 +3,7 @@
 import type React from 'react';
 import { useRef, useState, useEffect } from 'react';
 import { useMessages } from '@ably/chat/react';
-import { authClient } from '@/lib/auth-client';
+import { authClient } from '@/lib/client/auth-client';
 import { cn } from '@/lib/client/cn';
 import type { Message } from '@ably/chat';
 

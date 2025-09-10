@@ -1,6 +1,6 @@
 import { headers } from 'next/headers';
 import Chat from '@/components/Chat';
-import { auth } from '@/lib/auth';
+import { auth } from '@/lib/server/auth';
 
 async function getDisplayName() {
   const session = await auth.api.getSession({

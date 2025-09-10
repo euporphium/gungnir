@@ -6,7 +6,7 @@ import { ChatClientProvider, ChatRoomProvider } from '@ably/chat/react';
 import ChatBox from './ChatBox';
 
 export default function Chat() {
-  const realtimeClient = new Ably.Realtime({ authUrl: '/api/ably' });
+  const realtimeClient = new Ably.Realtime({ authUrl: 'api/ably' });
   const chatClient = new ChatClient(realtimeClient);
 
   return (
